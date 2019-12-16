@@ -10,7 +10,6 @@ class UrlShortener:
     def shorten_url(self, original_url):
         if (self.redis.does_key_exist(original_url)):
             url_id = int(self.redis.get_value_by_key(original_url))
-            print(url_id)
             shorten_url = self.url_encoder(url_id)
         else:
             url_id = int(self.redis.get_value_by_key('id'))
